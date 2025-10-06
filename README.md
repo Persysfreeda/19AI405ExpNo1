@@ -40,3 +40,50 @@
 <p>Treat unhealthy patients in each room. And check for the unhealthy patients in random room</p>
 <h3>STEP 5:</h3>
 <p>Measure the performance parameters: For each treatment performance incremented, for each movement performance decremented</p>
+
+import random
+
+class MedicinePrescribingAgent:
+    def __init__(self):
+        self.performance = 0
+        self.current_room = None
+        self.rooms = {"Room1": None, "Room2": None}
+
+    def take_temperature(self):
+        # Randomly generate temperature for each room
+        for room in self.rooms:
+            self.rooms[room] = round(random.uniform(97.0, 102.0), 1)
+
+    def check_and_treat(self, room):
+        temp = self.rooms[room]
+        print(f"\nChecking {room}... Temperature: {temp}°F")
+
+        if temp > 98.5:
+            print(f"→ {room}: Patient is unhealthy. Prescribing medicine 💊")
+            self.performance += 10
+        else:
+            print(f"→ {room}: Patient is healthy 🙂")
+
+    def move_to_room(self, new_room):
+        if self.current_room and self.current_room != new_room:
+            print(f"\nMoving from {self.current_room} to {new_room}...")
+            self.performance -= 1
+        self.current_room = new_room
+
+    def start(self):
+        print("🏥 Medicine Prescribing Agent started...\n")
+        self.take_temperature()
+
+        for room in self.rooms:
+            self.move_to_room(room)
+            self.check_and_treat(room)
+
+        print("\n✅ Checking completed!")
+        print(f"Final Performance Score: {self.performance}")
+
+# Run the simulation
+agent = MedicinePrescribingAgent()
+agent.start()
+
+<img width="672" height="511" alt="image" src="https://github.com/user-attachments/assets/2031ebfa-4326-41e2-bbc6-1a9ab65495a2" />
+
