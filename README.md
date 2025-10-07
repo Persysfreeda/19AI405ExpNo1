@@ -1,6 +1,6 @@
 <h1>ExpNo 1 :Developing AI Agent with PEAS Description</h1>
-<h3>Name: NALINIPRIYA G </h3>
-<h3>Register Number/Staff Id: TSIT031</h3>
+<h3>Name: Persys freeda J </h3>
+<h3>Register Number/Staff Id: 212224060185</h3>
 
 
 <h3>AIM:</h3>
